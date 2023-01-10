@@ -110,8 +110,16 @@ class SignUp : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show();
             }else{signInBtn.setOnClickListener {
-                val intent = Intent(this, Homepage::class.java)
+
+                val intent=Intent(SignUp@this,Homepage::class.java)
+                val bundle=Bundle()
+                bundle.putString("email",email1)
+                bundle.putString("password",pass)
+                bundle.putString("confirm",c_pass)
+                bundle.putString("dob",""+m_day+"/"+m_month+"/"+m_year)
+                intent.putExtras(bundle)
                 startActivity(intent)
+                finish()
                 }
             }
         }

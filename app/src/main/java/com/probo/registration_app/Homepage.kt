@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-
+import android.widget.TextView
+import org.w3c.dom.Text
 
 
 class Homepage : AppCompatActivity() {
@@ -22,6 +23,17 @@ class Homepage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homepage)
+
+        var email = findViewById<TextView>(R.id.email)
+        var date = findViewById<TextView>(R.id.dob)
+        var pass = findViewById<TextView>(R.id.password)
+        var bundle = intent.extras
+        if(bundle!=null){
+            email.text= bundle.getString("email")
+            date.text= bundle.getString("dob")
+            pass.text= bundle.getString("password")
+
+        }
 
         button = findViewById(R.id.show_img_btn)
         imageView = findViewById(R.id.img_view)
